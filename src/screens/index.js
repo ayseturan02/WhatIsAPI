@@ -1,4 +1,8 @@
-import index from './Detail';
-import index from './HomePage';
+import Detail from './Detail';
+import HomePage from './HomePage';
+import Trend from './Trend';
+import Profile from './Profile';
+import Search from './Search';
+import Recorded from './Recorded';
 
-export {index}
+export {Detail, HomePage, Trend, Profile, Search, Recorded};

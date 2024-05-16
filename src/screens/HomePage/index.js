@@ -13,11 +13,13 @@ import styles from './styles';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
-import {Header, SelectableText1, Card, Title} from './../../components/index';
-import {da} from './../../assets/Images/index';
-import {search2, menuBar} from './../../assets/Icons/index';
+import {Header, SelectableText1, Bottom, Title} from './../../components/index';
+import {foto} from './../../assets/Images/index';
+import {hut, save2, profile, search1, flame} from './../../assets/Icons/index';
+import {RouterNames} from '../../config';
 
-const HomePage = () => {
+const HomePage = props => {
+  const {navigation} = props;
   return (
     <SafeAreaView style={{backgroundColor: '#FFFFFF', height: windowHeight}}>
       <View>
@@ -39,6 +41,13 @@ const HomePage = () => {
             </View>
           </View>
         </ScrollView>
+        <View style={styles.bottom_position}>
+          <Bottom icon={hut} />
+          <Bottom icon={flame} />
+          <Bottom icon={search1} />
+          <Bottom icon={save2} />
+          <Bottom icon={profile} />
+        </View>
       </View>
     </SafeAreaView>
   );

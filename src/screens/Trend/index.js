@@ -1,14 +1,15 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
 
-const index = () => {
+const Trend = () => {
   return (
+   <View>
     <View>
-      <Text>index</Text>
+      <Text>kgkdjkgjk</Text>
     </View>
-  );
-};
+   </View>
+  )
+}
 
-export default index;
+export default Trend
 
-const styles = StyleSheet.create({});

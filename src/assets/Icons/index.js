@@ -7,8 +7,9 @@ const save2 = require('./save2.png');
 const search1 = require('./search1.png');
 const search2 = require('./search2.png');
 const share = require('./share.png');
-
+const flame =require("./flame.png");
 export {
+  flame,
   hut,
   menuBar,
   leftArrow,

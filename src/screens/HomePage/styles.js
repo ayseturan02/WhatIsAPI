@@ -9,4 +9,10 @@ export default styles = StyleSheet.create({
     alignItems: 'center',
     height: windowHeight * 0.07,
   },
+  bottom_position: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    height: windowWidth * 0.15,
+  },
 });
