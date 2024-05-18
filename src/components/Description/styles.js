@@ -7,7 +7,7 @@ export default styles = StyleSheet.create({
 title:{
     fontSize: windowWidth * 0.055,
     color: 'white',
-    fontWeight: '500',
+    fontWeight: '600',
   },
 
 

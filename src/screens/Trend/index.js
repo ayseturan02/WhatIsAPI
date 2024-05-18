@@ -3,13 +3,12 @@ import React from 'react'
 
 const Trend = () => {
   return (
-   <View>
     <View>
-      <Text>kgkdjkgjk</Text>
+      <Text>Trend</Text>
     </View>
-   </View>
   )
 }
 
 export default Trend
 
+const styles = StyleSheet.create({})
