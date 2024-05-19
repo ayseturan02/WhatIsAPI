@@ -5,9 +5,7 @@ import {a, da, image, s} from './../../assets/Images/index';
 const Search = () => {
   return (
     <View>
-      <Image source={a} style={{position: 'absolute'}} />
-      <Image source={image} />
-      
+      <Text>ksdkmsmksmk</Text>
     </View>
   );
 };

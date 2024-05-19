@@ -1,48 +1,50 @@
-import { StyleSheet, Text, View,Dimensions,Image } from 'react-native'
-import React from 'react'
+import {
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  Image,
+  TouchableNativeFeedback,
+} from 'react-native';
+import React from 'react';
 import styles from './styles';
+import {RouterNames} from '../../config';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
+import {useNavigation} from '@react-navigation/native';
 
-const Card = (props) => {
-  const {photo} =props;
+const Card = props => {
+  const {navigation} = useNavigation();
+  const {photo, date, description} = props;
   return (
-    <View
-    style={styles.view_card}>
-    <View style={{flexDirection: 'row', padding: windowWidth * 0.03}}>
-      <View>
-        <Image
-          source={photo}
-          style={styles.photo_size}
-        />
-      </View>
-      <View
-        style={styles.text_position}>
-        <View style={{width: windowWidth * 0.5}}>
-          <Text
-            style={styles.text_style}>
-            How income tax rule applies on your cryptocurrency gains -
-            Explained
-          </Text>
-        </View>
-        <View
-          style={styles.read_position}>
-          <View>
-            <Text style={styles.read_style}>
-              15 mins read
-            </Text>
-          </View>
-          <View>
-            <Text style={styles.read_style}>
-              Today
-            </Text>
+    <View style={{paddingTop: windowWidth * 0.04, alignItems: 'center'}}>
+      <TouchableNativeFeedback
+        onPress={() => {
+          navigation.navigate(RouterNames.DETAIL);
+        }}>
+        <View style={styles.view_card}>
+          <View style={{flexDirection: 'row', padding: windowWidth * 0.03}}>
+            <View>
+              <Image source={{uri: photo}} style={styles.photo_size} />
+            </View>
+            <View style={styles.text_position}>
+              <View style={{width: windowWidth * 0.5}}>
+                <Text style={styles.text_style}>{description}</Text>
+              </View>
+              <View style={styles.read_position}>
+                <View>
+                  <Text style={styles.read_style}>{date}</Text>
+                </View>
+                <View>
+                  <Text style={styles.read_style}>Today</Text>
+                </View>
+              </View>
+            </View>
           </View>
         </View>
-      </View>
+      </TouchableNativeFeedback>
     </View>
-  </View>
-  )
-}
+  );
+};
 
-export default Card
-
+export default Card;

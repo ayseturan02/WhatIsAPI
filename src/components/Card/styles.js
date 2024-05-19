@@ -3,7 +3,7 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 export default styles = StyleSheet.create({
   view_card: {
-    backgroundColor: '#F6F6F5',
+    backgroundColor: '#F6F6F6',
     height: windowWidth * 0.35,
     width: windowWidth * 0.9,
     borderRadius: windowWidth * 0.05,

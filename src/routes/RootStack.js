@@ -112,5 +112,7 @@ export default RootStack = () => {
         }}
       />
     </Tab.Navigator>
+
+
   );
 };
