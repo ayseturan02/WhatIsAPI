@@ -13,12 +13,13 @@ import {
 import {hut, save2, profile, search1, flame} from './../../assets/Icons/index';
 import React from 'react';
 import styles from './styles';
-import {Routes} from '../../Configs';
-import {Not, PlaceApi} from '../../service';
+import {RouterNames} from './../../config';
+import {Not, PlaceApi} from './../../service';
+import {useNavigation} from '@react-navigation/native';
 
 const HomePage = props => {
   const {item} = props;
-  const {navigation} = props;
+  const {navigation} = useNavigation;
   return (
     <SafeAreaView style={{backgroundColor: '#FFFFFF', height: windowHeight}}>
       <View>

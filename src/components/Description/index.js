@@ -6,14 +6,12 @@ const {save1, share} = require('./../../assets/Icons/index');
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
 
-const Description = () => {
+const Description = props => {
+  const {name, date, description} = props;
   return (
     <View>
       <View>
-        <Text style={styles.title}>
-          Top Cryptocurrency Prices Today : Bitcoin, Binance Coin up : Dogecoin
-          surges 25
-        </Text>
+        <Text style={styles.title}>{name}</Text>
       </View>
       <View
         style={{
@@ -51,7 +49,7 @@ const Description = () => {
                 fontSize: windowWidth * 0.03,
                 fontWeight: '600',
               }}>
-              Today, 08.21 AM
+              {date}
             </Text>
           </View>
         </View>
@@ -95,17 +93,7 @@ const Description = () => {
             fontSize: windowWidth * 0.04,
             fontWeight: '500',
           }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          varius enim in eros elementum tristique. sit amet, consectetur
-          adipiscing lit. ipiscing lit. Suspendisse varius enim in eros
-          elementum tristique. sit amet, conelit. Suspendisse varius enim in
-          eros elementum tristique. sit Suspendisse varius enim in eros
-          elementum tristique. sit amet, conelit. Suspendisse varius enim in
-          eros elementum amet, conelit. Suspendisse varius enim in eros
-          elementum tristique. sit amet, consectetur adipiscing elit.
-          Suspendisse varius enim in eros elementum tristique. sit amet,
-          consectetur adipiscing elit. Suspendisse varius enim in eros elementum
-          tristique.
+          {description}
         </Text>
       </View>
     </View>

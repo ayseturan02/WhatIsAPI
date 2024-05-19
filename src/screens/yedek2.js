@@ -11,6 +11,8 @@ const windowHeight = Dimensions.get('window').height;
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
+
+
 export default RootStack = () => {
   return (
     <Tab.Navigator
@@ -105,7 +107,6 @@ export default RootStack = () => {
                 style={{
                   width: windowWidth * 0.06,
                   height: windowWidth * 0.06,
-                  tintColor: focused ? '#2004A6' : '##090130',
                 }}
               />
             </View>
@@ -115,103 +116,3 @@ export default RootStack = () => {
     </Tab.Navigator>
   );
 };
-
-
-
-import {StyleSheet, Text, View, Image, Dimensions, Button} from 'react-native';
-import React, {useState} from 'react';
-const windowHeight = Dimensions.get('window').height;
-const windowWidth = Dimensions.get('window').width;
-import {at, a, da, foto, s} from '../../assets/Images';
-
-const Trend = () => {
-  const [count, setCount] = useState(1);
-
-  const DATA = [
-    {
-      id: '1',
-      title: 'Pizza',
-      price: '30.40',
-      image: at,
-    },
-    {
-      id: '2',
-      title: 'Hamburger',
-      price: '30.40',
-      image: a,
-    },
-    {
-      id: '3',
-      title: 'Döner',
-      price: '30.40',
-      image: s,
-    },
-    {
-      id: '4',
-      title: 'İskender',
-      price: '30.40',
-      image: da,
-    },
-    {
-      id: '5',
-      title: 'Lahmacun',
-      price: '30.40',
-      image: foto,
-    },
-  ];
-  const [image, setImage] = useState(DATA[1].image);
-  console.log('DATA[count]', DATA[count].image);
-  return (
-    <View >
-      <View
-        style={{
-          alignContent: 'center',
-          alignItems: 'center',
-          height: windowWidth * 0.6,
-          justifyContent: 'center',
-        }}>
-        <View style={{flexDirection: 'row'}}>
-          <View
-            style={{
-              backgroundColor: 'red',
-              height: windowWidth * 0.45,
-              width: windowWidth * 0.45,
-            }}>
-            <Image
-              source={DATA[(count - 1) % DATA.length].image}
-              style={{width: windowWidth * 0.45, height: windowWidth * 0.45}}
-            />
-          </View>
-          <View
-            style={{
-              backgroundColor: 'red',
-              height: windowWidth * 0.45,
-              width: windowWidth * 0.45,
-            }}>
-            <Image
-              source={DATA[(count + 1) % DATA.length].image}
-              style={{width: windowWidth * 0.45, height: windowWidth * 0.45}}
-            />
-          </View>
-        </View>
-        <View style={{position: 'absolute'}}>
-          <View
-            style={{
-              backgroundColor: 'black',
-              height: windowWidth * 0.6,
-              width: windowWidth * 0.6,
-            }}>
-            <Image
-              source={DATA[count].image}
-              style={{width: windowWidth * 0.6, height: windowWidth * 0.6}}
-            />
-          </View>
-        </View>
-      </View>
-    </View>
-  );
-};
-
-export default Trend;
-
-const styles = StyleSheet.create({});

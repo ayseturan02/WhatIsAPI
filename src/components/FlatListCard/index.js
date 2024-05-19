@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import { Card } from './../../components/index';
-import { Not, PlaceApi } from './../../service';
+import {StyleSheet, Text, View, FlatList, Dimensions} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Card} from './../../components/index';
+import {Not, PlaceApi} from './../../service';
 
 const windowHeight = Dimensions.get('window').height;
 const country = 'tr';
@@ -44,11 +44,16 @@ const FlatListCard = () => {
     <FlatList
       data={news}
       keyExtractor={item => item.id}
-      renderItem={({ item }) => {
+      renderItem={({item}) => {
         console.log('item', item);
         return (
           <View>
-            <Card photo={item.image} date={item.date} description={item.name} />
+            <Card
+              image={item.image}
+              date={item.date}
+              name={item.name}
+              description={item.description}
+            />
           </View>
         );
       }}
