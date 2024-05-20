@@ -8,7 +8,5 @@ export default styles = StyleSheet.create({
     height: windowWidth * 0.15,
     width: windowWidth * 0.75,
     borderRadius: windowWidth * 0.05,
-  
-   
   },
 });

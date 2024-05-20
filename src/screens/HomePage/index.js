@@ -22,30 +22,32 @@ const HomePage = props => {
   const {navigation} = useNavigation;
   return (
     <SafeAreaView style={{backgroundColor: '#FFFFFF', height: windowHeight}}>
-      <View>
-        <Header />
-        <Title
-          title1={'Good Morning'}
-          title2={'Explore the world ny one Click'}
-        />
-        <HeaderPhoto />
-        <View style={{height: windowHeight * 0.07}}>
-          <ScrollView horizontal={true} style={{height: windowHeight * 0}}>
-            <View style={{width: windowWidth * 1.5}}>
-              <View style={styles.selectable}>
-                <SelectableText1 />
+      <ScrollView style={{height: windowHeight * 0.9}}>
+        <View>
+          <Header />
+          <Title
+            title1={'Good Morning'}
+            title2={'Explore the world ny one Click'}
+          />
+          <HeaderPhoto />
+          <View style={{height: windowHeight * 0.07}}>
+            <ScrollView horizontal={true} style={{height: windowHeight * 0}}>
+              <View style={{width: windowWidth * 1.5}}>
+                <View style={styles.selectable}>
+                  <SelectableText1 />
+                </View>
               </View>
-            </View>
-          </ScrollView>
+            </ScrollView>
+          </View>
+          <FlatListCard />
         </View>
-        <FlatListCard />
-        <View style={styles.bottom_position}>
-          <Bottom icon={hut} />
-          <Bottom icon={flame} />
-          <Bottom icon={search1} />
-          <Bottom icon={save2} />
-          <Bottom icon={profile} />
-        </View>
+      </ScrollView>
+      <View style={styles.bottom_position}>
+        <Bottom icon={hut} />
+        <Bottom icon={flame} />
+        <Bottom icon={search1} />
+        <Bottom icon={save2} />
+        <Bottom icon={profile} />
       </View>
     </SafeAreaView>
   );
