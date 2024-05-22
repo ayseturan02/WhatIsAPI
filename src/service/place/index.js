@@ -5,6 +5,10 @@ const getNewsApi = body => {
   const TodosUrl = getNews + body;
   return get(TodosUrl);
 };
+const getNewsCity = body => {
+  const TodosUrl = getNews + body;
+  return get(TodosUrl);
+};
 const TodosListApi = () => {
   return get(Todos);
 };
@@ -12,4 +16,4 @@ const PlaceApi = body => {
   return post(TodosPost, body);
 };
 
-export default {getNewsApi, PlaceApi};
+export default {getNewsApi, PlaceApi, getNewsCity};

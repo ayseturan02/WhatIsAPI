@@ -1,64 +1,51 @@
-import React from 'react';
-import {View, Text, TouchableOpacity, Dimensions} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Dimensions,
+  StyleSheet,
+} from 'react-native';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
-class SelectableText extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selected: false,
-    };
-  }
+import React, {useState} from 'react';
+import styles from './styles';
 
-  handlePress = () => {
-    this.setState(prevState => ({
-      selected: !prevState.selected,
-    }));
+const listTab = [
+  {
+    status: 'Covid-19',
+  },
+  {
+    status: 'Spor',
+  },
+  {
+    status: 'Magazin',
+  },
+  {
+    status: 'Siyaset',
+  },
+  {
+    status: 'Teknoloji',
+  },
+];
+
+const SelectableText = () => {
+  const [status, setStatus] = useState('Magazin');
+  const setStatusFilter = status => {
+    setStatus(status)
   };
+  return (
+    <View style={styles.text_position}>
+      {listTab.map(e => (
+        <View style={styles.view}>
+          <TouchableOpacity
+            style={[styles.active_tab,status===e.status && styles.active ]}
+            onPress={() => setStatusFilter(e.status)}>
+            <Text style={styles.text}>{e.status}</Text>
+          </TouchableOpacity>
+        </View>
+      ))}
+    </View>
+  );
+};
 
-  render() {
-    const {selected} = this.state;
-    const textStyle = selected
-      ? {
-          color: 'white',
-          fontSize: 16,
-          backgroundColor: '#090130',
-          borderRadius: 20,
-          padding: 18,
-        }
-      : {};
-
-    return (
-      <TouchableOpacity onPress={this.handlePress}>
-        <Text style={textStyle}>{this.props.text}</Text>
-      </TouchableOpacity>
-    );
-  }
-}
-
-export default class App extends React.Component {
-  render(props) {
-    return (
-      <View style={{flexDirection: 'row', flex: 1,justifyContent:"space-around"}}>
-        <View>
-          <SelectableText text="Covid-19" />
-        </View>
-        <View>
-          <SelectableText text="Crypto" />
-        </View>
-        <View>
-          <SelectableText text="Tech" />
-        </View>
-        <View>
-          <SelectableText text="Sport" />
-        </View>
-        <View>
-          <SelectableText text="Covid-19" />
-        </View>
-        <View>
-          <SelectableText text="Sport" />
-        </View>
-      </View>
-    );
-  }
-}
+export default SelectableText;

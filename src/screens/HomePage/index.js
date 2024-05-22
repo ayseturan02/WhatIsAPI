@@ -7,7 +7,6 @@ import {
   Bottom,
   Title,
   HeaderPhoto,
-  Card,
   FlatListCard,
 } from './../../components/index';
 import {hut, save2, profile, search1, flame} from './../../assets/Icons/index';
@@ -33,9 +32,7 @@ const HomePage = props => {
           <View style={{height: windowHeight * 0.07}}>
             <ScrollView horizontal={true} style={{height: windowHeight * 0}}>
               <View style={{width: windowWidth * 1.5}}>
-                <View style={styles.selectable}>
-                  <SelectableText1 />
-                </View>
+                <SelectableText1 />
               </View>
             </ScrollView>
           </View>

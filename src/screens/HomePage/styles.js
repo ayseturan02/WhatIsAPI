@@ -8,7 +8,6 @@ export default styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     height: windowHeight * 0.07,
-   
   },
   bottom_position: {
     flexDirection: 'row',

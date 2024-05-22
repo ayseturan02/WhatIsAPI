@@ -14,7 +14,7 @@ const windowHeight = Dimensions.get('window').height;
 import {useNavigation} from '@react-navigation/native';
 
 const Card = props => {
-  const navigation = useNavigation(); // Correct way to use useNavigation
+  const navigation = useNavigation(); 
   const {image, date, description, name} = props;
   return (
     <View style={{paddingTop: windowWidth * 0.04, alignItems: 'center'}}>

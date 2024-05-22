@@ -49,7 +49,7 @@ const FlatListTrend = () => {
         console.log('item', item);
         return (
           <View>
-            <PostCard photo={item.image} text={item.source} />
+            <PostCard image={item.image} name={item.source} description={item.description} date={item.date} />
           </View>
         );
       }}

@@ -1,6 +1,6 @@
 import {StyleSheet, Text, View, FlatList, Dimensions} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import {Card} from './../../components/index';
+import {Card, HeaderPhoto} from './../../components/index';
 import {Not, PlaceApi} from './../../service';
 
 const windowHeight = Dimensions.get('window').height;
@@ -13,7 +13,7 @@ const payload = {
   userId: 1,
 };
 
-const FlatListCard = () => {
+const FlatListHeader = () => {
   const [news, setNews] = useState([]);
 
   const fetchData = () => {
@@ -49,12 +49,7 @@ const FlatListCard = () => {
         console.log('item', item);
         return (
           <View>
-            <Card
-              image={item.image}
-              date={item.date}
-              name={item.name}
-              description={item.description}
-            />
+            <HeaderPhoto image={item.image} name={item.name} />
           </View>
         );
       }}
@@ -62,6 +57,6 @@ const FlatListCard = () => {
   );
 };
 
-export default FlatListCard;
+export default FlatListHeader;
 
 const styles = StyleSheet.create({});
