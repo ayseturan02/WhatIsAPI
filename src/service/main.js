@@ -1,10 +1,11 @@
 import {BaseUrl, BaseUrl1} from './NetworkUrl';
 
 const get = urlOption => {
-  return fetch(BaseUrl + urlOption, { //fetch apiye istek atmak için kullanılan bir js fonk.
+  return fetch(BaseUrl + urlOption, {
+    //fetch apiye istek atmak için kullanılan bir js fonk.
     headers: {
       'content-type': 'application/json',
-      authorization: 'apikey 2IFdV34EFzXuyQxeY9BWut:2r90movyzE3x27lWBPgouN',
+      authorization:  'apikey 5VYJFd1uzKC3OyO8uc54PV:3zHo7eg7YhhwdEmFJfb8gW',
     },
   })
     .then(response => {
@@ -24,7 +25,7 @@ const post = (urlOption, body) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      authorization: 'apikey 2IFdV34EFzXuyQxeY9BWut:2r90movyzE3x27lWBPgouN',
+      authorization: 'apikey 5VYJFd1uzKC3OyO8uc54PV:3zHo7eg7YhhwdEmFJfb8gW',
     },
     body: JSON.stringify(body),
   })

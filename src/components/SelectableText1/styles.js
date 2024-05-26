@@ -30,4 +30,7 @@ export default styles = StyleSheet.create({
     backgroundColor: '#090130',
     borderRadius: windowWidth * 0.02,
   },
+  active_text: {
+    color: 'white',
+  },
 });

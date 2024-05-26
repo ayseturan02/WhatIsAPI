@@ -7,6 +7,7 @@ const windowHeight = Dimensions.get('window').height;
 const country = 'tr';
 const tag = 'general';
 const urlSent = `?country=${country}&tag=${tag}`;
+
 const payload = {
   title: 'Blog Title',
   body: 'lorem ipsum',

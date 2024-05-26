@@ -8,7 +8,6 @@ import {
   TextInput,
   Image,
 } from 'react-native';
-import {Card} from './../../components/index';
 import {Not, PlaceApi} from './../../service';
 
 const windowWidth = Dimensions.get('window').width;
@@ -16,10 +15,12 @@ const windowHeight = Dimensions.get('window').height;
 
 const Search = () => {
   const [news, setNews] = useState([]);
-  const [city, setCity] = useState('');
+  const [filterData, setFilterData] = useState([]);
+  const [masterData, setMasterData] = useState([]);
+  const [search, setSearch] = useState('');
 
-  const fetchData = city => {
-    const urlSent = `?city=${city}`;
+  const fetchData = keyword => {
+    const urlSent = `?country=tr&tag=general`;
 
     setNews([]);
 
@@ -27,61 +28,78 @@ const Search = () => {
       .then(data => {
         console.log('data', data);
         setNews(data.result);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-
-    const payload = {
-      title: 'Blog Title',
-      body: 'lorem ipsum',
-      userId: 1,
-    };
-
-    Not.PlaceApi(payload)
-      .then(data => {
-        console.log('Data received:', data);
+        setFilterData(data.result);
+        setMasterData(data.result);
+        console.log('selam');
       })
       .catch(error => {
         console.error('Error:', error);
       });
   };
-
   useEffect(() => {
-    if (city) {
-      fetchData(city);
+    fetchData();
+  }, []);
+  useEffect(() => {
+    if (search) {
+      news.map(item => {
+        if (item.name.includes(search)) {
+          setFilterData([item]);
+        }
+      });
     }
-  }, [city]);
+  }, [search]);
+
+  const itemView = ({item}) => {
+    console.log('item', item);
+    return (
+      <View>
+        <Text>
+          {item.name}
+        </Text>
+      </View>
+    );
+  };
+
+  const ItemSeparatorView = () => {
+    return <View />;
+  };
+
+  const searchFilter = text => {
+    if (text) {
+      const newData = masterData.filter(function (item) {
+        const itemData = item.title
+          ? item.title.toUpperCase()
+          : ''.toUpperCase();
+        const textData = text.toUpperCase();
+        return itemData.indexOf(textData) > -1;
+      });
+      setFilterData(newData);
+      setSearch(text);
+    } else {
+      setFilterData(masterData);
+      setSearch(text);
+    }
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input_view}
-          placeholder="Enter city name"
+          placeholder="Enter search keyword"
           placeholderTextColor={'gray'}
-          value={city}
-          onChangeText={setCity}
+          value={search}
+          onChangeText={text => searchFilter(text)}
         />
         <View style={styles.iconContainer}>
           <Image source={{uri: 'your_icon_url'}} style={styles.icon} />
         </View>
       </View>
       <FlatList
-        data={news}
-        keyExtractor={item => item.id}
-        renderItem={({item}) => {
-          return (
-            <View>
-              <Card
-                image={item.image}
-                date={item.date}
-                name={item.name}
-                description={item.description}
-              />
-            </View>
-          );
-        }}
+        data={filterData}
+        keyExtractor={index => index}
+        ItemSeparatorComponent={ItemSeparatorView}
+        renderItem={itemView}
       />
     </View>
   );

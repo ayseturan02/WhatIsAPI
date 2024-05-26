@@ -31,16 +31,19 @@ const listTab = [
 const SelectableText = () => {
   const [status, setStatus] = useState('Magazin');
   const setStatusFilter = status => {
-    setStatus(status)
+    setStatus(status);
   };
   return (
     <View style={styles.text_position}>
       {listTab.map(e => (
         <View style={styles.view}>
           <TouchableOpacity
-            style={[styles.active_tab,status===e.status && styles.active ]}
+            style={[styles.active_tab, status === e.status && styles.active]}
             onPress={() => setStatusFilter(e.status)}>
-            <Text style={styles.text}>{e.status}</Text>
+            <Text
+              style={[styles.text, status === e.status && styles.active_text]}>
+              {e.status}
+            </Text>
           </TouchableOpacity>
         </View>
       ))}
